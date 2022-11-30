@@ -18,49 +18,29 @@ class Movie extends React.Component {
   };
 
   handleEdit = (movie) => {
-    this.setState({
-      edit: true,
-      editionMovie: {
-        id: movie.id,
-        poster: movie.poster,
-        title: movie.title,
-        translation: movie.translation,
-        year: movie.year,
-        genre: movie.genre,
-      },
-    });
+    console.log(movie);
   };
 
   handleSave = () => {
     const { dispatch } = this.props;
     const { editionMovie } = this.state;
 
-    dispatch({
-      type: 'SAVE_MOVIE',
-      id: editionMovie.id,
-      payload: editionMovie,
+    console.log({
+      dispatch,
+      editionMovie,
     });
+
     this.setState({
       edit: false,
     });
   };
 
   handleDelete = (id) => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'DELETE_MOVIE',
-      id,
-    });
+    console.log(id);
   };
 
   handleChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState((prevState) => ({
-      editionMovie: {
-        ...prevState.editionMovie,
-        [name]: value,
-      },
-    }));
+    console.log(target);
   };
 
   render() {
