@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import './Movie.styles.css';
+
 class Movie extends React.Component {
   state = {
     edit: false,
@@ -63,12 +65,30 @@ class Movie extends React.Component {
 
   render() {
     const { movie } = this.props;
-    const { id, title, translation, year, poster } = movie;
+    const { title, poster, genre } = movie;
     const { edit, editionMovie } = this.state;
+
     return (
-      <div className="movie-card">
-        <div className="movie-container">
-          <img className="movie-image" src={ poster } alt={ `Poster for ${title}` } />
+      <div 
+        className="movie-card" 
+        style={{ 
+          backgroundImage: `url(${poster})`,
+        }}
+      >
+        <div className="overlay">
+          <div className="content">
+            <span className="tag">{ genre }</span>
+            <div className="stars">
+              {
+                Array
+                  .from({ length: 5 })
+                  .map(() => (
+                    <img width={16} height={16} src="/images/star.svg" alt="" />
+                  ))
+              }
+            </div>
+            <h3>{ title }</h3>
+          </div>
           {
             edit
               ? (
@@ -144,6 +164,7 @@ class Movie extends React.Component {
               </div>
             )
         }
+        </div>
       </div>
     );
   }

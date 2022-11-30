@@ -1,5 +1,13 @@
 const movies = [
   {
+    id: 260,
+    title: "Wonder Woman 1984",
+    translation: "Mulher Maravilha 1984",
+    year: "2020",
+    genre: "Fantasy",
+    poster: "https://m.media-amazon.com/images/M/MV5BYWFjNGQxZjItOTgxNy00NjhkLWFkZGQtOWVjNzJlYWNhM2NmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+  },
+  {
     id: 261,
     title: 'The Shawshank Redemption',
     translation: 'Um Sonho de Liberdade',
