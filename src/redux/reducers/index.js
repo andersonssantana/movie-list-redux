@@ -15,7 +15,10 @@ const movies = (state = INITIAL_STATE, action) => {
       topMovies: state.topMovies.filter((movie) => movie.id !== action.id)
     }
   case 'SAVE_MOVIE':
-    return state;
+    const editedMovies = state.topMovies.map((movie) => movie.id === action.id ? action.payload : movie);
+    return {
+      topMovies: editedMovies,
+    };
    default:
     return state;
  }

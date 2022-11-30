@@ -7,6 +7,7 @@ class Movie extends React.Component {
     edit: false,
     id: 0,
     editionMovie: {
+      id: 0,
       title: '',
       translation: '',
       year: 0,
@@ -19,6 +20,7 @@ class Movie extends React.Component {
       edit: true,
       id,
       editionMovie: {
+        id,
         poster: movie.poster,
         title: movie.title,
         translation: movie.translation,
