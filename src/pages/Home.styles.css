@@ -1,0 +1,126 @@
+.home {
+  background: url(../../public/images/header_bg.png) no-repeat;
+  background-size: cover;
+
+  padding: 2.4rem 6.4rem;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.home .overlay {
+  background: linear-gradient(269.96deg, rgba(29, 29, 29, 0) 0.04%, rgba(29, 29, 29, 0.8) 99.5%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.home .content {
+  z-index: 999;
+  max-width: 124.6rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.home header .buttons {
+  display: flex;
+  gap: 4rem;
+}
+
+.home header a {
+  padding: .8rem;
+  transition: filter 0.2s;
+}
+
+.home header a:hover {
+  filter: brightness(0.8);
+}
+
+.content section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-width: 632px;
+  width: 100%;
+  padding: 16.4rem 0;
+
+  color: var(--primaryWhite);
+}
+
+.content section .tag {
+  padding: .4rem .8rem;
+  background: var(--tagBg);
+  color: var(--primaryTeal);
+  border-top-right-radius: .8rem;
+  border-bottom-left-radius: .8rem;
+  width: fit-content;
+}
+
+.content section h1 {
+  font-size: 5.6rem;
+  font-weight: 500;
+}
+
+.content section p {
+  line-height: 3.2rem;
+}
+
+.content section a {
+  font-weight: 500;
+  font-size: 1.8rem;
+  background: transparent;
+  padding: 1.6rem;
+  max-width: 28.8rem;
+  width: 100%;
+  border: 1px solid var(--primaryTeal);
+  text-decoration: none;
+  color: var(--primaryWhite);
+  border-radius: 4rem;
+  text-align: center;
+
+  transition: all 0.2s;
+}
+
+.content section a:hover {
+  filter: brightness(0.8);
+  border-color: #FF00F5;
+}
+
+section.movies {
+  background: var(--primary);
+
+  padding-bottom: 2.4rem;
+}
+
+section.movies .head {
+  max-width: 124.6rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.4rem 5.2rem;
+  color: var(--primaryWhite);
+}
+
+section.movies .head h2 {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+section.movies ul {
+  max-width: 124.6rem;
+  width: 100%;
+  margin: 0 auto;
+
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}

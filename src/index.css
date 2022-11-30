@@ -1,10 +1,23 @@
-body {
+:root {
+  --primary: #1D1D1D;
+  --tagBg: rgba(29, 29, 29, 0.5);
+  --primaryWhite: #FFFFFF;
+  --primaryTeal: #0FEFFD;
+
+  font-size: 62.5%;
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: 1.6rem;
 }
 
 code {
