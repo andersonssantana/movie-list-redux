@@ -5,25 +5,25 @@ const INITIAL_STATE = {
 };
 
 const movies = (state = INITIAL_STATE, action) => {
- switch(action.type) {
+  switch (action.type) {
   case 'LOAD_MOVIES':
     return {
-      topMovies: action.payload
+      topMovies: action.payload,
     };
   case 'DELETE_MOVIE':
     return {
-      topMovies: state.topMovies.filter((movie) => movie.id !== action.id)
-    }
-  case 'SAVE_MOVIE':
-    const editedMovies = state.topMovies.map((movie) => movie.id === action.id ? action.payload : movie);
-    return {
-      topMovies: editedMovies,
+      topMovies: state.topMovies.filter((movie) => movie.id !== action.id),
     };
-   default:
+  case 'SAVE_MOVIE':
+    return {
+      topMovies: state.topMovies
+        .map((movie) => (movie.id === action.id ? action.payload : movie)),
+    };
+  default:
     return state;
- }
-}
+  }
+};
 
-const rootReducer = combineReducers({ movies })
+const rootReducer = combineReducers({ movies });
 
 export default rootReducer;
