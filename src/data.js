@@ -1,13 +1,5 @@
 const movies = [
   {
-    id: 260,
-    title: "Wonder Woman 1984",
-    translation: "Mulher Maravilha 1984",
-    year: "2020",
-    genre: "Fantasy",
-    poster: "https://m.media-amazon.com/images/M/MV5BYWFjNGQxZjItOTgxNy00NjhkLWFkZGQtOWVjNzJlYWNhM2NmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
-  },
-  {
     id: 261,
     title: 'The Shawshank Redemption',
     translation: 'Um Sonho de Liberdade',
@@ -48,6 +40,14 @@ const movies = [
     translation: 'A Lista de Schindler',
     year: '1993',
     poster: 'https://m.media-amazon.com/images/M/MV5BYjM5ZjYxNjQtZjdhYi00NzBiLTgyNGItOGU3YTYwYWE0NmEzXkEyXkFqcGdeQXVyMTAzMDM4MjM0._V1_FMjpg_UX675_.jpg',
+  },
+  {
+    id: 267,
+    title: 'Wonder Woman 1984',
+    translation: 'Mulher Maravilha 1984',
+    year: '2020',
+    genre: 'Fantasy',
+    poster: 'https://m.media-amazon.com/images/M/MV5BYWFjNGQxZjItOTgxNy00NjhkLWFkZGQtOWVjNzJlYWNhM2NmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg',
   },
 ];
 
