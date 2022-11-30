@@ -17,7 +17,7 @@ class Home extends React.Component {
     const { movies } = this.props;
     return (
         <div>
-          <h1 className='page-title'>Home</h1>
+          <h1 className='page-title'>Top Movies</h1>
           <section className='app'>
           {movies.map((movie) => <Movie key={movie.id} movie={movie}/>)}
           </section>

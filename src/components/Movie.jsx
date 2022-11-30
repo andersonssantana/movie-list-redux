@@ -67,55 +67,63 @@ class Movie extends React.Component {
     const { edit, editionMovie } = this.state;
     if (edit) return (
       <div className='movie-card'>
-          <label htmlFor='translation'>
-            <input
-              type='text'
-              name='translation'
-              id='translation'
-              value={ editionMovie.translation }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor='title'>
-            <input
-              type='text'
-              name='title'
-              id='title'
-              value={ editionMovie.title }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor='year'>
-            <input
-              type='text'
-              name='year'
-              id='year'
-              value={ editionMovie.year }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor='poster'>
-            <input
-              type='text'
-              name='poster'
-              id='poster'
-              value={ editionMovie.poster }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <img className='movie-image' src={editionMovie.poster} alt={`Poster for ${title}`} />
-          <button onClick={this.handleSave}>Salvar</button>
-          <button disabled>Deletar</button>
+      <div className='movie-container'>
+        <img className='movie-image' src={editionMovie.poster} alt={`Poster for ${title}`} />
+        <button onClick={this.handleSave}>Salvar</button>
+        <button disabled>Deletar</button>
+      </div>
+      <div className='movie-container'>
+        <label htmlFor='translation'>
+          <input
+            type='text'
+            name='translation'
+            id='translation'
+            value={ editionMovie.translation }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor='title'>
+          <input
+            type='text'
+            name='title'
+            id='title'
+            value={ editionMovie.title }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor='year'>
+          <input
+            type='text'
+            name='year'
+            id='year'
+            value={ editionMovie.year }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor='poster'>
+          <input
+            type='text'
+            name='poster'
+            id='poster'
+            value={ editionMovie.poster }
+            onChange={ this.handleChange }
+          />
+        </label>
+      </div>
       </div>
     );
     return (
         <div className='movie-card'>
-          <p className='movie-title'>{translation}</p>
-          <p className='movie-subtitle'>{title}</p>
-          <p className='movie-title'>{year}</p>
-          <img className='movie-image' src={poster} alt={`Poster for ${title}`} />
-          <button onClick={() => this.handleEdit(id, movie)}>Editar</button>
-          <button onClick={() => this.handleDelete(id)}>Deletar</button>
+          <div className='movie-container'>
+            <img className='movie-image' src={poster} alt={`Poster for ${title}`} />
+            <button onClick={() => this.handleEdit(id, movie)}>Editar</button>
+            <button onClick={() => this.handleDelete(id)}>Deletar</button>
+          </div>
+          <div>
+            <p className='movie-title'>{translation}</p>
+            <p className='movie-subtitle'>{title}</p>
+            <p className='movie-subtitle'>{year}</p>
+          </div>
         </div>
     );
   }
