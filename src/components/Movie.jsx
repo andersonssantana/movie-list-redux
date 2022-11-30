@@ -119,7 +119,7 @@ class Movie extends React.Component {
             <button onClick={() => this.handleEdit(id, movie)}>Editar</button>
             <button onClick={() => this.handleDelete(id)}>Deletar</button>
           </div>
-          <div>
+          <div className='movie-container'>
             <p className='movie-title'>{translation}</p>
             <p className='movie-subtitle'>{title}</p>
             <p className='movie-subtitle'>{year}</p>
