@@ -1,9 +1,20 @@
 import React from 'react';
 import Movie from '../components/Movie';
-import movies from '../data';
+import { connect } from 'react-redux'
+import movieList from '../data';
 
 class Home extends React.Component {
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'LOAD_MOVIES',
+      payload: movieList
+    });
+  }
+
   render() {
+    const { movies } = this.props;
     return (
         <div>
           <h1 className='page-title'>Home</h1>
@@ -15,4 +26,8 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  movies: state.movies.topMovies,
+});
+
+export default connect(mapStateToProps)(Home)
