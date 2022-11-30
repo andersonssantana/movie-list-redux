@@ -7,40 +7,40 @@ import './Movie.styles.css';
 class Movie extends React.Component {
   state = {
     edit: false,
-    id: 0,
     editionMovie: {
       id: 0,
       title: '',
       translation: '',
       year: 0,
       poster: '',
+      genre: '',
     },
   };
 
-  handleEdit = (id, movie) => {
+  handleEdit = (movie) => {
     this.setState({
       edit: true,
-      id,
       editionMovie: {
-        id,
+        id: movie.id,
         poster: movie.poster,
         title: movie.title,
         translation: movie.translation,
         year: movie.year,
+        genre: movie.genre,
       },
     });
   };
 
   handleSave = () => {
     const { dispatch } = this.props;
-    const { id, editionMovie } = this.state;
+    const { editionMovie } = this.state;
+
     dispatch({
       type: 'SAVE_MOVIE',
-      id,
+      id: editionMovie.id,
       payload: editionMovie,
     });
     this.setState({
-      id: 0,
       edit: false,
     });
   };
@@ -65,59 +65,37 @@ class Movie extends React.Component {
 
   render() {
     const { movie } = this.props;
-    const { title, poster, genre } = movie;
+    const { title, poster, genre, year, translation, id } = movie;
     const { edit, editionMovie } = this.state;
 
     return (
-      <div 
-        className="movie-card" 
-        style={{ 
+      <div
+        className="movie-card"
+        style={ {
           backgroundImage: `url(${poster})`,
-        }}
+        } }
       >
         <div className="overlay">
-          <div className="content">
-            <span className="tag">{ genre }</span>
-            <div className="stars">
-              {
-                Array
-                  .from({ length: 5 })
-                  .map(() => (
-                    <img width={16} height={16} src="/images/star.svg" alt="" />
-                  ))
-              }
-            </div>
-            <h3>{ title }</h3>
+          <div className="action-buttons">
+            <button
+              type="button"
+              className="edit"
+              onClick={ edit ? this.handleSave : () => this.handleEdit(movie) }
+            >
+              <img src={ `/images/${edit ? 'save' : 'edit'}.svg` } alt="" />
+            </button>
+            <button
+              type="button"
+              className="delete"
+              disabled={ edit }
+              onClick={ () => this.handleDelete(id) }
+            >
+              <img src="/images/close.svg" alt="" />
+            </button>
           </div>
           {
-            edit
-              ? (
-                <button
-                  type="button"
-                  onClick={ this.handleSave }
-                >
-                  Salvar
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={ () => this.handleEdit(id, movie) }
-                >
-                  Editar
-                </button>)
-          }
-          <button
-            type="button"
-            disabled={ edit }
-            onClick={ () => this.handleDelete(id) }
-          >
-            Deletar
-          </button>
-        </div>
-        {
-          edit
-            ? (
-              <div className="movie-container">
+            edit ? (
+              <form>
                 <label htmlFor="translation">
                   <input
                     type="text"
@@ -145,6 +123,15 @@ class Movie extends React.Component {
                     onChange={ this.handleChange }
                   />
                 </label>
+                <label htmlFor="genre">
+                  <input
+                    type="text"
+                    name="genre"
+                    id="genre"
+                    value={ editionMovie.genre }
+                    onChange={ this.handleChange }
+                  />
+                </label>
                 <label htmlFor="poster">
                   <input
                     type="text"
@@ -154,16 +141,21 @@ class Movie extends React.Component {
                     onChange={ this.handleChange }
                   />
                 </label>
+              </form>
+            ) : (
+              <div className="content">
+                <h3>{ translation }</h3>
+
+                <div className="bottom">
+                  <span className="tag">{ genre }</span>
+                  <div className="year">
+                    { year }
+                  </div>
+                  <h3>{ title }</h3>
+                </div>
               </div>
             )
-            : (
-              <div className="movie-container">
-                <p className="movie-title">{translation}</p>
-                <p className="movie-subtitle">{title}</p>
-                <p className="movie-subtitle">{year}</p>
-              </div>
-            )
-        }
+          }
         </div>
       </div>
     );
@@ -177,6 +169,7 @@ Movie.propTypes = {
     translation: PropTypes.string,
     poster: PropTypes.string,
     year: PropTypes.string,
+    genre: PropTypes.string,
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
