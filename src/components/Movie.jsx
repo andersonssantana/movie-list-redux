@@ -77,7 +77,6 @@ class Movie extends React.Component {
                   onClick={ this.handleSave }
                 >
                   Salvar
-
                 </button>
               ) : (
                 <button
@@ -85,7 +84,6 @@ class Movie extends React.Component {
                   onClick={ () => this.handleEdit(id, movie) }
                 >
                   Editar
-
                 </button>)
           }
           <button
@@ -94,7 +92,6 @@ class Movie extends React.Component {
             onClick={ () => this.handleDelete(id) }
           >
             Deletar
-
           </button>
         </div>
         {
