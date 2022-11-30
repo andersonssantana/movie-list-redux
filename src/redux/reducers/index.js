@@ -10,6 +10,12 @@ const movies = (state = INITIAL_STATE, action) => {
     return {
       topMovies: action.payload
     };
+  case 'DELETE_MOVIE':
+    return {
+      topMovies: state.topMovies.filter((movie) => movie.id !== action.id)
+    }
+  case 'SAVE_MOVIE':
+    return state;
    default:
     return state;
  }
