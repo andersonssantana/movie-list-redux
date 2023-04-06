@@ -22,24 +22,21 @@ class Home extends React.Component {
     const { movies } = this.props;
 
     return (
-      <>
-        <Header />
-        <section className="movies">
-          <div className="head">
-            <h2>Novos filmes</h2>
-          </div>
+      <section className="movies">
+        <div className="head">
+          <h2>Novos filmes</h2>
+        </div>
 
-          <ul>
-            {
-              movies.map((movie) => (
-                <li key={ movie.id }>
-                  <Movie movie={ movie } />
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-      </>
+        <ul>
+          {
+            movies.map((movie) => (
+              <li key={ movie.id }>
+                <Movie movie={ movie } />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
     );
   }
 }
