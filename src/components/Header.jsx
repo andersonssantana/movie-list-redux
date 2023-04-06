@@ -18,8 +18,8 @@ export default class Header extends Component {
               spectacular battle for the ages.
             </p>
 
-            <a href="/image/star.svg">
-              Watch now
+            <a href="/">
+              Watch Now
             </a>
           </section>
         </div>
