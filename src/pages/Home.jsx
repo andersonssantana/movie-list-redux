@@ -4,16 +4,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Movie from '../components/Movie';
-import Header from '../components/Header';
+// import Header from '../components/Header';
 import movieList from '../data';
 
 import './Home.styles.css';
+import { LOAD_MOVIES } from '../redux/actions/actionTypes';
 
 class Home extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'LOAD_MOVIES',
+      type: LOAD_MOVIES,
       payload: movieList,
     });
   }

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { LOAD_MOVIES, DELETE_MOVIE, SAVE_MOVIE } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   topMovies: [],
@@ -6,14 +7,14 @@ const INITIAL_STATE = {
 
 const movies = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case 'LOAD_MOVIES':
+  case LOAD_MOVIES:
     return {
       topMovies: action.payload,
     };
-  case 'DELETE_MOVIE':
+  case DELETE_MOVIE:
     // TODO: Implementar delete
     return state;
-  case 'SAVE_MOVIE':
+  case SAVE_MOVIE:
     // TODO: Implementar save
     return state;
   default:
