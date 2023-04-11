@@ -12,11 +12,15 @@ const movies = (state = INITIAL_STATE, action) => {
       topMovies: action.payload,
     };
   case DELETE_MOVIE:
-    // TODO: Implementar delete
-    return state;
+    return {
+      topMovies: state.topMovies
+        .filter((movie) => movie.id !== action.id),
+    };
   case SAVE_MOVIE:
-    // TODO: Implementar save
-    return state;
+    return {
+      topMovies: state.topMovies
+        .map((movie) => (movie.id === action.id ? action.payload : movie)),
+    };
   default:
     return state;
   }

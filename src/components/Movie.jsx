@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { DELETE_MOVIE, SAVE_MOVIE } from '../actions/actionTypes';
 
 import './Movie.styles.css';
+import { DELETE_MOVIE, SAVE_MOVIE } from '../redux/actions/actionTypes';
 
 class Movie extends React.Component {
   state = {
@@ -19,19 +19,22 @@ class Movie extends React.Component {
   };
 
   handleEdit = (movie) => {
-    // TODO: Implementar função
-    console.log(movie);
+    this.setState({
+      edit: true,
+      editionMovie: {
+        ...movie,
+      },
+    });
   };
 
   handleSave = () => {
     const { dispatch } = this.props;
     const { editionMovie } = this.state;
 
-    // TODO: Implementar função
-
-    console.log({
-      dispatch,
-      editionMovie,
+    dispatch({
+      type: SAVE_MOVIE,
+      payload: editionMovie,
+      id: editionMovie.id,
     });
 
     this.setState({
@@ -40,14 +43,23 @@ class Movie extends React.Component {
   };
 
   handleDelete = (id) => {
-    // TODO: Implementar função
     const { dispatch } = this.props;
-    console.log(id, dispatch);
+
+    dispatch({
+      type: DELETE_MOVIE,
+      id,
+    });
   };
 
   handleChange = ({ target }) => {
-    // TODO: Implementar função
-    console.log(target);
+    const { name, value } = target;
+    console.log(name);
+    this.setState((prevState) => ({
+      editionMovie: {
+        ...prevState.editionMovie,
+        [name]: value,
+      },
+    }));
   };
 
   render() {
